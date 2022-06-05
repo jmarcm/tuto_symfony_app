@@ -1,5 +1,5 @@
 <?php
-
+// recherche de debuggers : @category:debuggers PHP
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,40 +11,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class HelloController extends AbstractController {
 
     /**
-     * @Route("/hello/{param}", requirements={"param"="\d+"}, methods={"GET"})
+     * @Route("/hello")
      */
-    function helloNumber($param) {
+    function hello() {
 
-        return new Response("Hello number " . $param);
-
-        // echo "<pre>";
-        // var_dump($params);
-        // echo "</pre>";
+        return $this->render("hello_2.html.twig");
         
     }
 
     /**
-     * @Route("/hello/{param}")
+     * @Route("/hello/{name}", name="helloWithName")
      */
-    function helloDefault($param) {
+    function helloWithName($name) {
 
-        // $title = 'Utilisateurs';
-        // $users = ['Aurélie', 'Léa', 'Pierrick', 'Pierre'];
-
-        // return $this->render('hello.html.twig', ['title' => $title, 'users' => $users]);
-
-        // $params = $request->query->all();
-        // $string = 'Les paramètres sont : <br/>';
-        // foreach ($params as $key => $value) {
-        //     $string .= "- " . $key . ":" . $value . "<br/>";
-        // }
-        
-        $param = $param ?? "vide";
-        return new Response("Hello default " . $param);
-
-        // echo "<pre>";
-        // var_dump($params);
-        // echo "</pre>";
+        return new Response("Hello " . $name);
         
     }
 }
