@@ -3,24 +3,28 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
+// use Symfony\Component\HttpFoundation\Response;
+// use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/hello")
+ */
 class HelloController extends AbstractController {
 
-    function hello(Request $request) {
+    function hello() {
 
-        // $title = 'Utilisateurs';
-        // $users = ['Aurélie', 'Léa', 'Pierrick', 'Pierre'];
+        $title = 'Utilisateurs';
+        $users = ['Aurélie', 'Léa', 'Pierrick', 'Pierre'];
 
-        // return $this->render('hello.html.twig', ['title' => $title, 'users' => $users]);
+        return $this->render('hello.html.twig', ['title' => $title, 'users' => $users]);
 
-        $params = $request->query->all();
-        $string = 'Les paramètres sont : <br/>';
-        foreach ($params as $key => $value) {
-            $string .= "- " . $key . ":" . $value . "<br/>";
-        }
-        return new Response($string);
+        // $params = $request->query->all();
+        // $string = 'Les paramètres sont : <br/>';
+        // foreach ($params as $key => $value) {
+        //     $string .= "- " . $key . ":" . $value . "<br/>";
+        // }
+        // return new Response($string);
         // echo "<pre>";
         // var_dump($params);
         // echo "</pre>";
