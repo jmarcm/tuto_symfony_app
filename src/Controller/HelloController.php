@@ -9,6 +9,10 @@ class HelloController extends AbstractController {
 
     function hello() {
 
-        return new Response('Hello Jean-Marc !');
+        $title = 'Utilisateurs';
+        $users = ['Aurélie', 'Léa', 'Pierrick', 'Pierre'];
+
+        return $this->render('hello.html.twig', ['title' => $title, 'users' => $users]);
+        
     }
 }

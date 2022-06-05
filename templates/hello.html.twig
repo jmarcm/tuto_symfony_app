@@ -1,0 +1,9 @@
+{# Ce template affiche un titre en majuscule et une liste d'utilisateurs #}
+
+<div>{{title | upper}}</div>
+
+<ul>
+    {% for user in users %}
+        <li>{{user}}</li>
+    {% endfor %}
+</ul>
