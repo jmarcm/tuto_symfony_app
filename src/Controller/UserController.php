@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Entity\User;
+
 class UserController extends AbstractController {
 
     /**
@@ -13,6 +15,13 @@ class UserController extends AbstractController {
      * @return void
      */
     function createUserForm() {
-        
+
+        $user = new User();
+        $form = $this->createFormBuilder($user)
+            ->add("name")
+            ->add("email")
+            ->getForm();
+
+        return $this->render('form.html.twig', ['userForm' => $form->createView()]);
     }
 }
