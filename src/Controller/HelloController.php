@@ -11,14 +11,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class HelloController extends AbstractController {
 
     /**
-     * @Route({
-     *  "fr": "/bonjour",
-     *  "en": "/hello"
-     * })
+     * @Route({ "fr": "/bonjour", "en": "/hello" })
      */
     function hello(Request $request) {
 
         $locale = $request->getLocale();
-        return new Response("Hello locale : " . $locale);
+        $salutation = ($locale == "fr") ? "Bonjour" : "Hello";
+        return new Response("$salutation : $locale");
     }
 }
