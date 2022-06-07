@@ -6,6 +6,7 @@ class User {
 
     protected $name;
     protected $email;
+    protected $date;
 
     function getName() {
         return $this->name;
@@ -21,5 +22,13 @@ class User {
 
     function setEmail($email) {
         $this->email = $email;
+    }
+
+    function getDate() {
+        return $this->date;
+    }
+
+    function setDate($date) {
+        $this->date = $date;
     }
 }
