@@ -7,17 +7,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-use Psr\Log\LoggerInterface ;
+use App\Service\Greeter;
 
 
 class HelloController extends AbstractController {
 
     /**
-     * @Route({ "fr": "/bonjour", "en": "/hello" })
+     * @Route("/hello")
      */
-    function hello(LoggerInterface $logger) {
+    function hello(Greeter $greeter) {
 
-        $logger->alert("logger !");
-        return new Response(hello.html.twig);
+        $message = $greeter->greet();
+        return new Response($message);
     }
 }
