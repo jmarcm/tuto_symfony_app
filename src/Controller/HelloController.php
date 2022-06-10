@@ -7,16 +7,17 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Psr\Log\LoggerInterface ;
+
 
 class HelloController extends AbstractController {
 
     /**
      * @Route({ "fr": "/bonjour", "en": "/hello" })
      */
-    function hello(Request $request) {
+    function hello(LoggerInterface $logger) {
 
-        $locale = $request->getLocale();
-        $salutation = ($locale == "fr") ? "Bonjour" : "Hello";
-        return new Response("$salutation : $locale");
+        $logger->alert("logger !");
+        return new Response(hello.html.twig);
     }
 }
