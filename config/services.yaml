@@ -25,4 +25,4 @@ services:
 
     App\Service\Greeter:
         arguments:
-            "Jean-Marc"
+            $name: "Jean-Marc"
